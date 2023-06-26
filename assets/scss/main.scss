@@ -1,0 +1,23 @@
+body {
+  background: linen;
+}
+
+h1 {
+  color: salmon;
+  font-size: 10rem;
+}
+
+.three-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 95vh;
+}

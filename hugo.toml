@@ -1,0 +1,4 @@
+baseURL = 'https://brandongulyas.com/'
+languageCode = 'en-us'
+title = 'Brandon Gulyas'
+noJSConfigInAssets = true
