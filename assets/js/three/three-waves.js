@@ -1,6 +1,7 @@
 import * as THREE from 'three';
+import {colors} from '../colors/colors.js';
 
-export default function wavesInit(container ) {
+export default function wavesInit(container) {
   const clock = new THREE.Clock();
   window.addEventListener( 'resize', onWindowResize, false );
 
@@ -71,6 +72,18 @@ export default function wavesInit(container ) {
         type: 'f',
         value: clock.getElapsedTime()
       },
+      r_color: {
+        type: 'f',
+        value: colors[0].r_color
+      },
+      g_color: {
+        type: 'f',
+        value: colors[0].g_color
+      },
+      b_color: {
+        type: 'f',
+        value: colors[0].b_color
+      }
     }
 
     const wavePlane = new THREE.PlaneGeometry( 80, 80, 50, 50 );
@@ -171,6 +184,9 @@ export default function wavesInit(container ) {
       fragmentShader: `
         varying vec2 vUv;
         uniform float u_time;
+        uniform float r_color;
+        uniform float g_color;
+        uniform float b_color;
 
         // Author @patriciogv - 2015
         // http://patriciogonzalezvivo.com
@@ -221,7 +237,7 @@ export default function wavesInit(container ) {
             pattern = lines(pos,.5);
 
             if (pattern > .0){
-              gl_FragColor = vec4(vec3(pattern - 0.9, pattern - 0.8, pattern - 0.7), 1.0);
+              gl_FragColor = vec4(vec3(pattern - r_color, pattern - g_color, pattern - b_color), 1.0);
             } else {
               gl_FragColor = vec4(0., 0., 0., 0.0);
             }
@@ -233,6 +249,115 @@ export default function wavesInit(container ) {
 
     waveMesh.rotation.set((Math.PI / 2) - 0.3, -0.1, 0);
   // END WAVE SECTION 
+
+  // COLOR CHANGE SECTION 
+  //    Listens to body class changes to change the color of the waves
+    const body  = document.body;
+    const colorTrack = {
+      'mode': colors[0].mode,
+      'r_color': colors[0].r_color,
+      'g_color': colors[0].g_color,
+      'b_color': colors[0].b_color,
+      'r_value': 0.0,
+      'r_under': false,
+      'g_value': 0.0,
+      'g_under': false,
+      'b_value': 0.0,
+      'b_under': false
+    };
+
+    function colorDifference(a, b) {
+      return (Math.round(Math.abs(a - b) * 10) / 10) / 100;
+    }
+
+    function isPositive(a, b) {
+      if(a >= b) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
+    
+    function changeColor() {
+      if(colorTrack.r_under) {
+        if(waveUniforms.r_color.value > colorTrack.r_color) {
+          waveUniforms.r_color.value -= colorTrack.r_value;
+        }
+      }
+      else {
+        if(waveUniforms.r_color.value < colorTrack.r_color) {
+          waveUniforms.r_color.value += colorTrack.r_value;
+        }
+      }
+
+      if(colorTrack.g_under) {
+        if(waveUniforms.g_color.value > colorTrack.g_color) {
+          waveUniforms.g_color.value -= colorTrack.g_value;
+        }
+      }
+      else {
+        if(waveUniforms.g_color.value < colorTrack.g_color) {
+          waveUniforms.g_color.value += colorTrack.g_value;
+        }
+      }
+
+      if(colorTrack.b_under) {
+        if(waveUniforms.b_color.value > colorTrack.b_color) {
+          waveUniforms.b_color.value -= colorTrack.b_value;
+        }
+      }
+      else {
+        if(waveUniforms.b_color.value < colorTrack.b_color) {
+          waveUniforms.b_color.value += colorTrack.b_value;
+        }
+      }
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      if(mutations[0].attributeName === 'class') {
+        const colorMode = (mutations[0].target.classList.value != '')? mutations[0].target.classList.value : 'normal';
+
+        colors.forEach(mode => {
+          if(mode.mode == colorMode) {
+            let rValue = colorDifference(waveUniforms.r_color.value, mode.r_color); 
+            let gValue = colorDifference(waveUniforms.g_color.value, mode.g_color); 
+            let bValue = colorDifference(waveUniforms.b_color.value, mode.b_color); 
+
+            colorTrack.r_value = rValue;
+            colorTrack.g_value = gValue;
+            colorTrack.b_value = bValue;
+
+            colorTrack.r_under = isPositive(mode.r_color, colorTrack.r_color);
+            colorTrack.g_under = isPositive(mode.g_color, colorTrack.g_color);
+            colorTrack.b_under = isPositive(mode.b_color, colorTrack.b_color);
+
+            colorTrack.r_color = mode.r_color;
+            colorTrack.g_color = mode.g_color;
+            colorTrack.b_color = mode.b_color;
+          }
+        });
+      }
+    });
+
+    observer.observe(body, {attributes: true});
+
+    const storageMode = localStorage.getItem('mode');
+    if (storageMode) {
+      for (const i in colors) {
+        let value = colors[i];
+        if(value.mode == storageMode) {
+          waveUniforms.r_color.value = value.r_color;
+          waveUniforms.g_color.value = value.g_color;
+          waveUniforms.b_color.value = value.b_color;
+          colorTrack.r_color = value.r_color;
+          colorTrack.g_color = value.g_color;
+          colorTrack.b_color = value.b_color;
+          break;
+        }
+      }
+    }
+  // COLOR CHANGE SECTION 
 
   // RENDER ANIMATE AND RESIZE SECTION
   //
@@ -253,6 +378,7 @@ export default function wavesInit(container ) {
     function animate() {
       requestAnimationFrame( animate );
       waveUniforms.u_time.value = clock.getElapsedTime();
+      changeColor();
       renderer.setRenderTarget( postProcessTexture );
       renderer.clear();
       renderer.render( waveScene, waveCamera );
@@ -264,4 +390,5 @@ export default function wavesInit(container ) {
 
     animate();
   // END RENDER ANIMATE AND RESIZE SECTION
+
 }

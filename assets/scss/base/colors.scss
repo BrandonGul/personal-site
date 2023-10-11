@@ -1,0 +1,18 @@
+:root {
+  --background: #f8e8e0;
+  --primary: #f8b888;
+  --secondary: #804000;
+  --foreground: #301800;
+}
+
+.dark-mode {
+  --background: darkslategray;
+}
+
+.gameboy {
+  // something
+}
+
+.no-animate {
+  transition: false;
+}

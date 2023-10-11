@@ -1,23 +1,13 @@
-body {
-  background: linen;
-}
+// SHORTCODES
+@import 'shortcodes/intro';
+@import 'shortcodes/three-waves';
+@import 'shortcodes/projects';
 
-h1 {
-  color: salmon;
-  font-size: 10rem;
-}
+// PARTIALS
+@import 'partials/menu';
 
-.three-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+// BASE
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/colors';
 
-.intro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 95vh;
-}
