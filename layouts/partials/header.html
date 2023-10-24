@@ -1,12 +1,39 @@
 <section class="menu">
   <div class="controls-holder">
-    <div id="opener" class="opener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <div id="opener" class="button opener">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M11.9999 3.30545V20.5M3.5 12H20.5" stroke-width="3" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="site-controls">
-      <div id="color-mode" class="color-mode">
+      <a id="title-link" class="title-link" target="_blank" href="#">
+        <img id="title-image" class="title-image">
+        <div class="title-wrapper">
+          <p id="title" class="title"></p>
+        </div>
+      </a>
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/282364335&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
+      <div id="prev-track" class="button prev-track">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19.5 18.5V5.5L8.5 12L19.5 18.5Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4.5 5.5V18.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div id="play-pause" class="button play-pause">
+        <svg class="control-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5.5 18.5V5.5L18.5 12L5.5 18.5Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="control-pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M8 4.5V19.5M16 4.5V19.5" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div id="next-track" class="button next-track">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4.5 18.5V5.5L15.5 12L4.5 18.5Z" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19.5 5.5V18.5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div id="color-mode" class="button color-mode">
         <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M16 7.99999C18.2092 10.2091 18.2092 13.7909 16 16C13.7909 18.2091 10.2092 18.2091 8.00004 16C5.79088 13.7909 5.79088 10.2091 8.00004 7.99997C10.2092 5.79085 13.7909 5.79085 16 7.99999Z"/>
           <path d="M11.8 19.2V21.3C11.8 21.4104 11.8896 21.5 12.0001 21.5C12.1105 21.5 12.2 21.4105 12.2 21.3V19.2C12.2 19.0895 12.1105 19 12 19C11.8896 19 11.8 19.0895 11.8 19.2Z" stroke-width="0.5"/>
@@ -21,17 +48,21 @@
         <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5767 3.32317C11.5845 4.24444 9.40973 7.03095 9.40973 10.3254C9.40973 14.3711 12.6894 17.6508 16.7351 17.6508C17.9083 17.6508 19.017 17.375 20 16.8848C18.3966 19.539 15.4839 21.3135 12.1568 21.3135C7.09962 21.3135 3 17.2139 3 12.1568C3 7.09962 7.09962 3 12.1568 3C12.9944 3 13.8058 3.11248 14.5767 3.32317Z"/>
         </svg>
+        <svg class="gameboy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M5.5 20.5V3.5C5.5 2.94772 5.94772 2.5 6.5 2.5H17.5C18.0523 2.5 18.5 2.94771 18.5 3.5V20.5C18.5 21.0523 18.0523 21.5 17.5 21.5H6.5C5.94772 21.5 5.5 21.0523 5.5 20.5Z"/>
+          <path d="M8 18H7.2C7.08954 18 7 17.9105 7 17.8V17.2C7 17.0895 7.08954 17 7.2 17H8V16.2C8 16.0895 8.08954 16 8.2 16H8.8C8.91046 16 9 16.0895 9 16.2V17H9.8C9.91046 17 10 17.0895 10 17.2V17.8C10 17.9105 9.91046 18 9.8 18H9V18.8C9 18.9105 8.91046 19 8.8 19H8.2C8.08954 19 8 18.9105 8 18.8V18Z"/>
+          <path d="M14.25 18.25C14.3881 18.1119 14.3881 17.8881 14.25 17.75C14.1119 17.6119 13.8881 17.6119 13.75 17.75C13.6119 17.8881 13.6119 18.1119 13.75 18.25C13.8881 18.3881 14.1119 18.3881 14.25 18.25Z"/>
+          <path d="M16.3904 17.75C16.5285 17.6119 16.5285 17.3881 16.3904 17.25C16.2523 17.1119 16.0285 17.1119 15.8904 17.25C15.7523 17.3881 15.7523 17.6119 15.8904 17.75C16.0285 17.8881 16.2523 17.8881 16.3904 17.75Z"/>
+          <path d="M8 13.5V5H16V13.5H8Z"/>
+        </svg>
+        <svg class="chateau-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 10.9444L3.2478 10.9445L12 2.67181L17.5 7.86518M12 10.9444H20.7611L18.7018 9M12 10.9444H20V21.5H14H10H3.99997V10.9568L12 10.9444ZM18.7018 9V5H17.5V7.86518M18.7018 9L17.5 7.86518M8 15H6C5.72386 15 5.5 15.2239 5.5 15.5V17.5C5.5 17.7761 5.72386 18 6 18H8C8.27614 18 8.5 17.7761 8.5 17.5V15.5C8.5 15.2239 8.27614 15 8 15ZM18 15H16C15.7239 15 15.5 15.2239 15.5 15.5V17.5C15.5 17.7761 15.7239 18 16 18H18C18.2761 18 18.5 17.7761 18.5 17.5V15.5C18.5 15.2239 18.2761 15 18 15Z"/>
+          <path d="M18 8V5M10.5 21.5V16.3C10.5 16.1343 10.6343 16 10.8 16H13.2C13.3657 16 13.5 16.1343 13.5 16.3V21.5H10.5Z"/>
+        </svg>
+        <svg class="purple" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M3 8.05494L6 3.5H9M3 8.05494L12 20.5M3 8.05494L6 8.5M12 20.5L21 8.05494M12 20.5L10.4 9M12 20.5L13.4 9M12 20.5L6 8.5M12 20.5L17.5 8.5M21 8.05494L18 3.5H15M21 8.05494L17.5 8.5M12 3.5L10.4 9M12 3.5L13.4 9M12 3.5H9M12 3.5H15M10.4 9L6 8.5M10.4 9L12 9.22224L13.4 9M13.4 9L17.5 8.5M9 3.5L6 8.5M15 3.5L17.5 8.5"/>
+        </svg>
       </div>
-      <div id="prev-track" class="prev-track"></div>
-      <div id="play-pause" class="play-pause"></div>
-      <div id="next-track" class="next-track"></div>
-      <a id="title-link" class="title-link" target="_blank" href="#">
-        <img id="title-image" class="title-image">
-        <div class="title-wrapper">
-          <p id="title" class="title"></p>
-        </div>
-      </a>
-      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/282364335&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"></iframe>
     </div>
   </div>
 </section>

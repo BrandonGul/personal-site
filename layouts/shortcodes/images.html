@@ -1,0 +1,17 @@
+<div class="images">
+  <div>
+    {{ with resources.Get ( .Get "image_1" ) }}
+      <img src="{{ .RelPermalink }}">
+    {{ end }}
+  </div>
+  <div>
+    {{ with resources.Get ( .Get "image_2" ) }}
+      <img src="{{ .RelPermalink }}">
+    {{ end }}
+  </div>
+  <div>
+    {{ with resources.Get ( .Get "image_3" ) }}
+      <img src="{{ .RelPermalink }}">
+    {{ end }}
+  </div>
+</div>

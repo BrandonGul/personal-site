@@ -1,0 +1,25 @@
+.contact {
+  margin: 20px 0px;
+  padding: 0px 15px;
+
+  div {
+    padding: 10px 10px 9px;
+    display: flex;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--foreground);
+    color: var(--foreground);
+
+    transition: all 2s ease-in-out;
+    font-size: 0.625rem;
+    font-family: 'Press Start 2P', cursive;
+
+    a {
+      color: var(--foreground);
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+}

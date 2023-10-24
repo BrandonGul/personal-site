@@ -32,6 +32,7 @@ export default function menuInit() {
 
 function setupMenu(control) {
   const body       = document.body;
+  const contact    = document.getElementById('contact');
   const opener     = control.querySelector('#opener');
   const colorMode  = control.querySelector('#color-mode');
   const prevTrack  = control.querySelector('#prev-track');
@@ -61,6 +62,10 @@ function setupMenu(control) {
   }
 
   opener.addEventListener('click', function() {
+    if (body.classList.contains('no-animate')) {
+      body.classList.remove('no-animate');
+    }
+
     if(control.classList.contains('active')) {
       control.classList.remove('active');
     }
@@ -91,6 +96,13 @@ function setupMenu(control) {
       colorMode.classList.add(addClass);
       localStorage.setItem('mode', addClass);
     }
+
+    control.classList.add('animating');
+    contact.classList.add('animating');
+    control.addEventListener('transitionend', () => {
+      control.classList.remove('animating');
+      contact.classList.remove('animating');
+    });
   });
 
   playPause.addEventListener('click', function() {

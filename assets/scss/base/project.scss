@@ -1,0 +1,86 @@
+.project {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 0px;
+  padding: 0 20px;
+
+  p {
+    font-family: 'PT Serif', serif;
+    color: var(--foreground);
+    transition: color 2s ease-in-out;
+  }
+
+  > div {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .back {
+    display: flex;
+    width: fit-content;
+    padding: 4px 6px;
+    border-radius: 5px;
+    background: var(--foreground);
+    transition: background 2s ease-in-out, color 2s ease-in-out;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.625rem;
+    color: var(--background);
+    border: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .images {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    > div {
+      background: var(--foreground);
+      border-radius: 5px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      > img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    @media screen and (max-width: 900px) {
+      gap: 15px;
+    }
+
+    @media screen and (max-width: 500px) {
+      gap: 10px;
+    }
+  }
+
+  .info {
+    padding: 10px 10px 9px;
+    display: flex;
+    width: fit-content;
+    border-radius: 5px;
+    border: 2px solid var(--foreground);
+    color: var(--foreground);
+
+    transition: all 2s ease-in-out;
+    font-size: 0.625rem;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  @media screen and (max-width: 500px) {
+    margin: 90px 0;
+  }
+}
