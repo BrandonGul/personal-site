@@ -8,6 +8,7 @@ points:
   - JavaScript
   - HTML
   - CSS
+  - PITTED 
 display_data:
   front_texture: "/images/pittedgnar/pittedgnar-front.jpg"
   back_texture:  "/images/pittedgnar/pittedgnar-back.jpg"
