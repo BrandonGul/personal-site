@@ -1,4 +1,5 @@
 .menu {
+  z-index: 100;
   background: var(--foreground);
   border-radius: 50px;
   height: 30px;
@@ -48,11 +49,11 @@
       cursor: pointer;
       height: 20px;
       width: 20px;
-      fill: var(--background);
+      fill: none; 
       stroke: var(--background);
 
       &:hover {
-        fill: var(--primary);
+        fill: none; 
         stroke: var(--primary);
       }
 
@@ -99,7 +100,6 @@
 
           .moon {
             display: block;
-            fill: none;
           }
         }
 
@@ -110,7 +110,6 @@
 
           .gameboy-icon {
             display: block;
-            fill: none;
           }
         }
 
@@ -131,7 +130,6 @@
 
           .chateau-icon {
             display: block;
-            fill: none;
           }
         }
       }

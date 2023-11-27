@@ -1,3 +1,7 @@
-<div class="info">
-  {{ .Get "text" }}
+<div class="info-holder">
+  {{ with .Page.Params.points }}
+    {{ range . }}
+      <div class="info">{{ . }}</div>
+    {{ end }}
+  {{ end }}
 </div>

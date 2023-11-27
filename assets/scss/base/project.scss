@@ -12,9 +12,16 @@
   }
 
   > div {
-    max-width: 1000px;
+    max-width: 1200px;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .button-holder {
+    display: flex;
+    flex-direction: row;
     gap: 10px;
   }
 
@@ -37,35 +44,64 @@
     }
   }
 
-  .images {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+  .link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
 
     > div {
-      background: var(--foreground);
-      border-radius: 5px;
-      width: 100%;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      width: fit-content;
+      padding: 4px 6px;
+      border-radius: 5px;
+      background: var(--foreground);
+      transition: background 2s ease-in-out, color 2s ease-in-out;
+      text-decoration: none;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.625rem;
+      color: var(--background);
+      border: none;
+      text-transform: uppercase;
 
-      > img {
-        width: 100%;
-        height: auto;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
+  }
 
-    @media screen and (max-width: 900px) {
-      gap: 15px;
+  .image {
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+
+    .info {
+      top: 20px;
+      left: 20px;
+      position: absolute;
+      border: 2px solid var(--background);
+      color: var(--background);
     }
 
-    @media screen and (max-width: 500px) {
-      gap: 10px;
+
+    img {
+      height: auto;
+      width: 100%;
     }
   }
+
+  .info-holder {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+   }
 
   .info {
     padding: 10px 10px 9px;
@@ -78,6 +114,7 @@
     transition: all 2s ease-in-out;
     font-size: 0.625rem;
     font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
   }
 
   @media screen and (max-width: 500px) {

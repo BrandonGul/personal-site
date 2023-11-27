@@ -1,0 +1,11 @@
+<div class="image">
+  {{ with resources.Get ( .Get "image" ) }}
+    <img src="{{ .RelPermalink }}">
+  {{ end }}
+
+  {{ if ( .Get "text" ) }}
+    <div class="info">
+      {{ .Get "text" }}
+    </div>
+  {{ end }}
+</div>

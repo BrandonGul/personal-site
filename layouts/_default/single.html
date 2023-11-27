@@ -1,7 +1,16 @@
 {{ define "main" }}
   <section class="project">
     <div>
-      <button class="back" id="home-button">< HOME</button>
+      <div class="button-holder">
+        <button class="back" id="home-button">< HOME</button>
+        {{ if and (.Page.Params.website) (.Page.Params.website_title)}}
+          <a class="link" href="{{ .Page.Params.website }}" target="_blank">
+            <div>
+              {{ .Page.Params.website_title }}
+            </div>
+          </a>
+        {{ end }}
+      </div>
       {{ .Content }}
     </div>
   </section>
