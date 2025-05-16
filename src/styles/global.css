@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Inter Variable', sans-serif; 
+
+  --color-background: oklch(0.97 0.0151 67.76);
+  --color-foreground: oklch(55.98% 0.1882 266.4);
+  --color-text: oklch(48.19% 0 0);
+  --color-accent-accepted: oklch(90.35% 0.1624 144.09);
+  --color-accent-error: oklch(72.46% 0.1377 21.03);
+  --color-accent-loading: oklch(92.8% 0 0);
+}

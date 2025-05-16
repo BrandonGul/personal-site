@@ -1,8 +1,0 @@
-baseURL = 'https://brandongulyas.com/'
-languageCode = 'en-us'
-title = 'Brandon Gulyas'
-noJSConfigInAssets = true
-disableKinds = ["taxonomy","taxonomyTerm", "tags"]
-
-[params]
-  description = 'I live being creative and making things'
